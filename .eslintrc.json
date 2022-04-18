@@ -1,3 +1,54 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+  },
+  "extends": [
+      "plugin:react/recommended",
+      "airbnb",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+  },
+  "plugins": [
+      "react",
+      "react-hooks",
+      "@typescript-eslint"
+  ],
+  "rules": {
+      "@next/next/no-title-in-document-head": "off",
+      "react/jsx-one-expression-per-line": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "no-constant-condition": "off",
+      "max-len": "off",
+      "no-await-in-loop": "off",
+      "react/react-in-jsx-scope": "off",
+      "no-console": "off",
+      "react/prop-types": "off",
+      "react/jsx-props-no-spreading": "off",
+      "linebreak-style": "off",
+      "react/jsx-filename-extension": [
+          1,
+          {
+              "extensions": [".jsx", ".tsx", ".js", ".ts"]
+          }
+      ],
+      "import/extensions" : "off",
+      "import/no-unresolved" : "off",
+      "react-hooks/exhaustive-deps": "warn",
+      "object-curly-newline": ["warn", {
+          "ObjectExpression": { "multiline": true, "minProperties": 5 },
+          "ObjectPattern": { "multiline": true, "minProperties": 3 },
+          "ImportDeclaration": "never",
+          "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+      }]
+  }
 }
