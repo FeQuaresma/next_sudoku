@@ -1,7 +1,8 @@
 import { createGlobalStyle, css } from "styled-components";
+import theme from "./theme";
 
-export default createGlobalStyle`
-  ${(props => css`
+export default createGlobalStyle<{ theme: typeof theme }>`
+  ${({ theme }) => css`
     html {
         height: 100%;
 
@@ -13,10 +14,10 @@ export default createGlobalStyle`
           height: 100%;
           margin: 0;
           padding: 15px;
-          background: radial-gradient(#282c34cc, #282c34);
-          color: ${props.theme.};
+          background: ${theme.colors.background};
+          color: ${theme.colors.black};
           font-family: sans-serif;
         }
       }
-  `)};
+  `};
 `;
