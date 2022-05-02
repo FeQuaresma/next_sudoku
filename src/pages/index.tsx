@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import { ThemeProvider } from "styled-components";
 
-import { Card, Content, Grid, Title } from "../components";
-import { GlobalStyles, theme } from "../styles";
+import { Card, Content, Grid, Title } from "components";
+import { GlobalStyles, theme } from "styles";
 
 const Home: NextPage = () => {
   return (
