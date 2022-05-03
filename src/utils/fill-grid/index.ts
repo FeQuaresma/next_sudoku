@@ -1,17 +1,5 @@
 import { GRID, NUMBERS } from 'typings'
-import { isInRow, isInCol, shuffle } from 'utils'
-
-const gridExample: GRID = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-]
+import { isInRow, isInCol, isInSquare, shuffle, identifyWorkingSquare, checkGrid } from 'utils'
 
 const numbers: NUMBERS[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -34,7 +22,12 @@ function fillGrid(grid: GRID) {
       for (let value of numbers) {
         if (!isInRow({ grid, row, value })) {
           if (!isInCol({ col, grid, value })) {
-            grid[row][col] = value
+            const square = identifyWorkingSquare({ col, grid, row })
+            if (!isInSquare({ square, value })) {
+              grid[row][col] = value
+              if (checkGrid(grid)) return true
+              else if (fillGrid(grid)) return true
+            }
           }
         }
       }

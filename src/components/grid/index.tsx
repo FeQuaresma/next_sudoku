@@ -1,11 +1,10 @@
-import React, { FC, Children } from "react";
-import { deflate } from "zlib";
+import React, { FC, Children } from 'react'
+import { createFullGrid } from 'utils'
 
-import Block from "./block";
-import { Container, Row } from "./styles";
+import Block from './block'
+import { Container, Row } from './styles'
 
 const Grid: FC = () => {
-  // Outras coisas
 
   return (
     <Container data-cy="grid-container">
@@ -21,7 +20,7 @@ const Grid: FC = () => {
         ))
       )}
     </Container>
-  );
-};
+  )
+}
 
-export default Grid;
+export default Grid
