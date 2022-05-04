@@ -1,23 +1,29 @@
-import type { NextPage } from "next";
-import { ThemeProvider } from "styled-components";
+import type { NextPage } from 'next'
+import { Provider } from 'react-redux'
+import { ThemeProvider } from 'styled-components'
 
-import { Card, Content, Grid, Title } from "components";
-import { GlobalStyles, theme } from "styles";
+import { Card, Content, Grid, Title } from 'components'
+import { configureStore } from 'core'
+import { GlobalStyles, theme } from 'styles'
+
+const store = configureStore()
 
 const Home: NextPage = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Content data-cy="content">
-          <Title data-cy="title">Raules Ezinha :sunglasses:</Title>
-          <Card data-cy="card">
-            <Grid />
-          </Card>
-        </Content>
+        <Provider store={store}>
+          <Content data-cy="content">
+            <Title data-cy="title">Raules Ezinha :sunglasses:</Title>
+            <Card data-cy="card">
+              <Grid />
+            </Card>
+          </Content>
+        </Provider>
       </ThemeProvider>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
