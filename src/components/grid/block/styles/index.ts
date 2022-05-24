@@ -6,6 +6,7 @@ interface IProps {
 
 export const Container = styled.div<IProps>`
   ${({ active, theme }) => css`
+  
     align-items: center;
     background-color: ${active ? theme.colors.blue : theme.colors.white};
     border: solid 1px ${theme.colors.black};
@@ -20,6 +21,8 @@ export const Container = styled.div<IProps>`
     justify-content: center;
     transition: ${theme.transition};
     user-select: none;
+    max-width: 49px;
+    max-height: 49px;
 
     &:before {
       padding-top: 100%;
@@ -29,6 +32,14 @@ export const Container = styled.div<IProps>`
 
     &:hover {
       background-color: ${theme.colors.lightBlue};
+    }
+
+    input {
+      max-width: 100%;
+      max-height: 100%;
+      font-size: inherit;
+      font-weight: inherit;
+      text-align: center;
     }
   `}
 `

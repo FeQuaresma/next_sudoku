@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import { Card, Content, Grid, Title } from 'components'
+import { Card, Content, Grid, Title, PlayButtons } from 'components'
 import { configureStore } from 'core'
 import { GlobalStyles, theme } from 'styles'
 
@@ -15,11 +15,12 @@ const Home: NextPage = () => {
         <GlobalStyles />
         <Provider store={store}>
           <Content data-cy="content">
-            <Title data-cy="title">Raules Ezinha :sunglasses:</Title>
+            <Title data-cy="title">Next.js Sudoku</Title>
             <Card data-cy="card">
               <Grid />
             </Card>
           </Content>
+          <PlayButtons />
         </Provider>
       </ThemeProvider>
     </>
